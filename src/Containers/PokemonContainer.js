@@ -12,7 +12,7 @@ const PokemonContainer = () => {
     }, []);
 
 
-    // OTHER WAY OF DOING A FETCH USING AYSNC
+    // OTHER WAY OF DOING WHAT IS ABOVE AS A FETCH USING AYSNC
     // const fetchPokemon =  aysnc() => {
         // const pokemonData = await fetch(url)
         // const allPokemons = await pokemonData.json()
