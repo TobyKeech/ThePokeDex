@@ -1,9 +1,16 @@
 const Pokemon = ({ pokemon }) => {
 
+   const handleClick = ((event) => {
+    event.preventDefault()
+    return(console.log("I love pokemon"))
+        
+    })
+
     return (
         <div className="pokemonWrapper">
 
-            {pokemon?.sprites?.front_default ? <img className="imagePok" src={pokemon?.sprites?.front_default} /> : null}
+
+            <form action="onClick"> <button onClick = {handleClick} >{pokemon?.sprites?.front_default ? <img className="imagePok" src={pokemon?.sprites?.front_default} /> : null} </button></form>
             <div> Name : {pokemon.name}</div>
             <div> Age : {pokemon.height}</div>
             <div> Abilitiy: {pokemon.abilities[0].ability.name}</div>

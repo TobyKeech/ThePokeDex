@@ -11,23 +11,29 @@ const PokemonContainer = () => {
             .then((data) => setPokemons(data.results))
     }, []);
 
-    useEffect (() => {
-       const pokemonPromises = pokemons.map((pokemon) => {
-            return fetch (`${pokemon.url}`)
-            .then(res => res.json());
-        }); 
+
+    // OTHER WAY OF DOING A FETCH USING AYSNC
+    // const fetchPokemon =  aysnc() => {
+        // const pokemonData = await fetch(url)
+        // const allPokemons = await pokemonData.json()
+        // setPokemons(allPokemons)
+    // }
+
+
+    useEffect(() => {
+        const pokemonPromises = pokemons.map((pokemon) => {
+            return fetch(`${pokemon.url}`)
+                .then(res => res.json());
+        });
 
         Promise.all(pokemonPromises)
-            .then((bannana) => setPokemonData(bannana));
-        
-        
-
+            .then((data) => setPokemonData(data));
     }, [pokemons]);
 
 
     return (
         <>
-            <PokeList pokemonData={pokemonData} />
+            <PokeList pokemonData={pokemonData}/>
         </>
     );
 }
